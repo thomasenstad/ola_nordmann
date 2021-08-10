@@ -19,13 +19,12 @@ class News {
    function get_headlines(){
       if($this->crawler){
          $this->headlines=[];
-         $this->crawler->filter('.c-category-article')->each(function (Crawler $node, $i) {
-            $this->headlines[$i]=['text'=>$node->text(), 'link'=>$node->attr("data-ga-label")];
+         $this->crawler->filter('article a')->each(function (Crawler $node, $i) {
+            $this->headlines[$i]=['text'=>$node->text(), 'link'=>$node->attr("href")];
          });
          return $this->headlines;
       } else {
          return false;
       }
    }
-
 }
