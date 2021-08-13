@@ -3,7 +3,7 @@
     "require": {
         "symfony/dom-crawler": "^5.3",
         "symfony/css-selector": "^5.3",
-        "symfony/orm-pack": "^2.1"
+        "symfony/flex": "^1.13"
     },
     "autoload": {
       "psr-4": {"OlaCrawler\\":"src"}

@@ -3,7 +3,6 @@
 include("header.php");
 
  ?>
-   <body>
       <div class="container">
          <h2>Siste nytt</h2>
          <?php if(sizeof($headlines)>0){?>

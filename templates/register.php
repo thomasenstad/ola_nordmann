@@ -2,10 +2,6 @@
 
 include("header.php");
 
- ?>
-   <body>
-
-      <?php
       // define variables and set to empty values
       $username = $password = "";
 
