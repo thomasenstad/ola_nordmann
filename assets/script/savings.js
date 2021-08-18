@@ -27,6 +27,10 @@ class Savings {
      }
   }
 
+  get graph() {
+     this.drawGraph();
+ }
+
   percentageOfGoal() {
      return 100 * (this.totalSaved / this.goal);
  }
@@ -55,10 +59,31 @@ class Savings {
      return this.initialBalanceFloat() + this.monthlyInputFloat();
   }
 
+  drawGraph() {
+     const height = (this.canvas.height) / 10;
+     for (let i = 0, n = 11; i <= 10; i++) {
+        n--;
+
+        let graphPercentage = this.canvas.getContext("2d");
+        graphPercentage.fillText(n * 10 + "%", this.canvas.width - 30, height * i);
+        graphPercentage.fillStyle = "#ffffffaa";
+
+         let graphLine = this.canvas.getContext("2d");
+         graphLine.moveTo(this.canvas.width, height * i);
+         graphLine.lineTo(0, height * i);
+         graphLine.strokeStyle = "#ffffff0c";
+         graphLine.lineWidth = 1;
+         graphLine.stroke();
+      }
+
+  }
+
 }
 
 const savings = new Savings(10000,5000,100,1000000,"ola-graph");
 savings.currentProgress;
+savings.graph;
+
 
 document.getElementById("savings-initial").innerHTML = savings.initial;
 document.getElementById("savings-monthly").innerHTML = savings.monthly;
