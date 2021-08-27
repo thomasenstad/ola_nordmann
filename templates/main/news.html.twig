@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="col">
+            <div class="row">
+                <ul class="list-group">
+                    {% for headline in headlines %}
+                        <li class="list-group-item"><a href={{ headline.link }}>{{ headline.text }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

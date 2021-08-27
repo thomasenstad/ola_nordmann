@@ -1,15 +1,28 @@
 <?php
-namespace OlaCrawler\Classes;
+namespace App\Classes;
 
 class Register {
 
-   private $username,
-            $password;
+   private $username="",
+            $password="";
 
-   function __construct($user, $pass)
+   function __construct($username, $password)
    {
-      $this->username = $user;
-      $this->password = $pass;
+      $this->username=$this->sanitize($username);
+      $this->password=$this->sanitize($password);
    }
 
+   function sanitize($data)
+   {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+   }
+
+   function do()
+   {
+      echo "user:" . $this->username;
+      echo "pass:" . $this->password;
+   }
 }

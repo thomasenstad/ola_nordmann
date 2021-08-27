@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 justify-content-center">
+                <div class="card text-dark bg-light mb-3">
+                <div class="card-header">Nyhetsfeed</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Siste nytt fra næringslivet</h5>
+                        <p class="card-text">I nyhetsfeeden får du siste nytt fra Aftenposten.</p>
+                        <a href="{{ path('savings') }}" class="btn btn-primary">Gå til</a>
+                    </div>
+               </div>
+            </div>
+            <div class="col-md-6 justify-content-center">
+                <div class="card text-dark bg-light mb-3">
+                <div class="card-header">Spareplan</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Din personlige spareplan</h5>
+                        <p class="card-text">Med en personlig spareplan er det enkelt å holde oversikten.</p>
+                        <a href="{{ path('savings') }}" class="btn btn-primary">Gå til</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

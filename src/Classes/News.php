@@ -1,5 +1,5 @@
 <?php
-namespace OlaCrawler\Classes;
+namespace App\Classes;
 use Symfony\Component\DomCrawler\Crawler;
 
 class News {
@@ -16,12 +16,13 @@ class News {
       $this->crawler=new Crawler($this->dom);
    }
 
-   function get_headlines(){
-      if($this->crawler){
-         $this->headlines=[];
-         $this->crawler->filter('article a')->each(function (Crawler $node, $i) {
-            $this->headlines[$i]=['text'=>$node->text(), 'link'=>$node->attr("href")];
-         });
+   function get_headlines()
+   {
+      if ($this->crawler) {
+            $this->headlines=[];
+            $this->crawler->filter('article a')->each(function (Crawler $node, $i) {
+               $this->headlines[$i]=['text'=>$node->text(), 'link'=>$node->attr("href")];
+            });
          return $this->headlines;
       } else {
          return false;
